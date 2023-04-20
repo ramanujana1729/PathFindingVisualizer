@@ -1,9 +1,10 @@
 import "./App.css";
+import './components/Modal.css';
 import { useState } from "react";
 import { AlgoVisualizer } from "./components/AlgoVisualizer";
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
   const [name,setName] = useState(window.localStorage.getItem('name'));
 
   // function to set username to localstorage
@@ -20,17 +21,10 @@ function App() {
 
   return (
     <div className="App">
-      <button
-        onClick={() => {
-          setShowModal(true);
-        }}
-      >
-        {showModal ? "Change Name" : "Add Name"}
-      </button>
       {showModal && (
         <div id="myModal" className="modal">
           <div className="modal-content">
-            <img src="../public/logo.jpg" alt="company_logo"></img>
+            {/* <img src="../public/logo.jpg" alt="company_logo"></img> */}
             <span
               className="close"
               onClick={() => {
@@ -41,13 +35,13 @@ function App() {
             </span>
             <br />
             <form onSubmit={storeUser}>
-              <label htmlFor="name">Enter Name:</label>
+              {/* <label htmlFor="name">Enter Name:</label> */}
               <input
                 type="text"
-                placeholder="Enter your name..."
+                placeholder="Enter your username..."
                 id="username"
               ></input>
-              <button type="submit">Submit</button>
+              <button type="submit" className="button">Submit</button>
             </form>
           </div>
         </div>

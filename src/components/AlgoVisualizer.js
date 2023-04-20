@@ -10,6 +10,7 @@ const FINISH_NODE_COL = 35;
 export const AlgoVisualizer = () => {
   const [grid, setGrid] = useState(getInitialGrid());
   const [mouseIsPressed, setMouseIsPressed] = useState(false);
+//   const [modal,setModal] = useState(false);
 
   const handleMouseDown = (row, col) => {
     const newGrid = getNewGridWithWallToggled(grid, row, col);
@@ -54,6 +55,8 @@ export const AlgoVisualizer = () => {
   };
 
   const visualizeDijkstra = () => {
+    // alert('i am here');
+    // setModal(true);
     const startNode = grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
     const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
